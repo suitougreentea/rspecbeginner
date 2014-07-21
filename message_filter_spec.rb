@@ -5,4 +5,8 @@ describe MessageFilter do
     filter = MessageFilter.new('foo')
     expect(filter.detect?('hello from foo')).to eq true
   end
+  it 'detects message without NG word' do
+    filter = MessageFilter.new('foo')
+    expect(filter.detect?('hello world')).to eq false
+  end
 end

@@ -7,7 +7,7 @@ describe MessageFilter do
   it 'detects message with NG word' do
     expect(@filter).to be_detect('hello from foo')
   end
-  it 'detects message without NG word' do
+  it 'does not detects message without NG word' do
     expect(@filter).not_to be_detect('hello world')
   end
 end

@@ -1,5 +1,6 @@
 require_relative 'message_filter'
 require 'rspec/its'
+require 'rspec/collection_matchers'
 
 describe MessageFilter do
   shared_examples 'MessageFilter with argument "foo"' do
@@ -11,6 +12,7 @@ describe MessageFilter do
   context 'with argument "foo"' do
     subject { MessageFilter.new('foo') }
     it_behaves_like 'MessageFilter with argument "foo"'
+    its(:ng_words) { is_expected.to have(1).item }
   end
 
   context 'with argument "foo","bar"' do
